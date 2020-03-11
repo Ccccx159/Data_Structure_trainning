@@ -8,9 +8,10 @@
  *                                *
  **********************************/
 
-#ifndef STATUS_H
-#define STATUS_H
+#ifndef _STATUS_H_
+#define _STATUS_H_
 
+#include <iostream>
 #include <ctype.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -18,19 +19,19 @@
 #include <string.h>
 
 /* 状态码 */
-#define TRUE 1         //真
-#define FALSE 0        //假
-#define YES 1          //是
-#define NO 0           //否
-#define OK 1           //通过
-#define ERROR 0        //错误
-#define SUCCESS 1      //成功
-#define UNSUCCESS 0    //失败
-#define INFEASIBLE -1  //不可行
+#define TRUE 0         //真
+#define FALSE 1        //假
+#define YES 0          //是
+#define NO 1           //否
+#define OK 0           //通过
+#define ERROR -1        //错误
+#define SUCCESS 0      //成功
+#define UNSUCCESS -1    //失败
+#define INFEASIBLE -2  //不可行
 
 #ifndef _MATH_H_      //系统中已有此状态码定义，要避免冲突
-#define OVERFLOW -2   //堆栈上溢
-#define UNDERFLOW -3  //堆栈下溢
+#define OVERFLOW -5   //堆栈上溢
+#define UNDERFLOW -6  //堆栈下溢
 #endif
 
 #ifndef NULL
