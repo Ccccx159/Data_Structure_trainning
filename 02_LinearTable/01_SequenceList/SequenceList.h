@@ -5,8 +5,8 @@
 
 #include "../../01_Exordium/status.h"
 
-#define LIST_INIT_SIZE  100   //初始化顺序表预留空间
-#define LIST_INCREMENT  10    //顺序表单次扩容大小
+#define LIST_INIT_SIZE 100  //初始化顺序表预留空间
+#define LIST_INCREMENT 10   //顺序表单次扩容大小
 
 //顺序表数据类型定义
 #ifndef ELEMENT_TYPE_SQL
@@ -14,11 +14,11 @@
 typedef int ElemType_Sql;
 #endif
 
-typedef struct{
-    ElemType_Sql *elem;   //顺序表存储空间基址
-    int length;           //顺序表长度
-    int list_size;        //顺序表当前空间大小
-}Sqlist, *pSqlist;
+typedef struct {
+  ElemType_Sql *elem;  //顺序表存储空间基址
+  int length;          //顺序表长度
+  int list_size;       //顺序表当前空间大小
+} Sqlist, *pSqlist;
 
 #ifdef __cplusplus
 extern "C" {
@@ -60,10 +60,8 @@ Status del_list_seq(pSqlist L, int i, ElemType_Sql *e);
 //遍历顺序表
 Status traversal_list_seq(Sqlist L);
 
-
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif
