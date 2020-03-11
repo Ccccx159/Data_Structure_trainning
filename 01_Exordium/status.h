@@ -11,6 +11,12 @@
 #ifndef STATUS_H
 #define STATUS_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdarg.h>
+#include <ctype.h>
+
 /* 状态码 */
 #define	TRUE         1    //真 
 #define	FALSE        0    //假
@@ -52,7 +58,15 @@ typedef int Status;
     fflush(stdin);\
 }
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //自定义输入函数声明
 int Scanf_priv(FILE *fp, char *format, ...);
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif
