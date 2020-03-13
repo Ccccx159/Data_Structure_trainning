@@ -27,6 +27,10 @@ OBJS += $(patsubst %.cpp, %.o, $(SRCS))
 
 TARGET = $(DIR_TRUNK)/bin/test_$(func)
 
+SUBDIR = $(shell ls ../ -R | grep /)
+SUBDIRS = $(subst :,/,$(SUBDIR))
+TMPFILES = $(foreach dir,$(SUBDIRS),$(wildcard $(dir)*.o))
+
 .PHONY:all clean
 all: $(TARGET)
 $(TARGET):$(OBJS)
@@ -39,5 +43,5 @@ $(TARGET):$(OBJS)
 	$(CPP) -g $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	-rm -rf *.o
+	-rm -rf $(TMPFILES)
 	-rm -rf $(TARGET)
