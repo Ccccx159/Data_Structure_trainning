@@ -64,8 +64,10 @@ typedef int Status;
 extern "C" {
 #endif
 
+typedef Status (*compare)(int a, int b);
+  
 //自定义输入函数声明
-int Scanf_priv(FILE *fp, char *format, ...);
+int scanf_priv(FILE *fp, char *format, ...);
 
 #ifdef __cplusplus
 }
