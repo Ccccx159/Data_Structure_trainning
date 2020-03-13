@@ -3,7 +3,7 @@
 #ifndef _SEQUENCELIST_H_
 #define _SEQUENCELIST_H_
 
-#include "../../01_Exordium/status.h"
+#include "01_Exordium/status.h"
 
 #define LIST_INIT_SIZE 100  //初始化顺序表预留空间
 #define LIST_INCREMENT 10   //顺序表单次扩容大小
@@ -43,7 +43,7 @@ int get_length_list_seq(Sqlist L);
 Status get_elem_list_seq(Sqlist L, int i, ElemType_Sql *e);
 
 //查：获取元素e在顺序表中的位置
-Status get_local_list_seq(Sqlist L, ElemType_Sql e, int *i);
+Status get_local_list_seq(Sqlist L, ElemType_Sql e, compare func);
 
 //查：获取元素e的前驱
 Status get_prior_list_seq(Sqlist L, ElemType_Sql e, ElemType_Sql *pre);
@@ -59,6 +59,14 @@ Status del_list_seq(pSqlist L, int i, ElemType_Sql *e);
 
 //遍历顺序表
 Status traversal_list_seq(Sqlist L);
+  
+/******************************************************************************/
+
+//求两个顺序表个并集
+void union_list_seq(Sqlist *La, Sqlist Lb);
+
+//顺序表的合并
+Status merge_list_seq(Sqlist La, Sqlist Lb, pSqlist Lc);
 
 #ifdef __cplusplus
 }
