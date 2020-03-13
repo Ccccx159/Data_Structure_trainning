@@ -53,6 +53,22 @@ void test_SequenceList_demo() {
   }
   PressEnter;
 
+    extern Status bigger(int a, int b);
+
+  cout << "function [get_local_list_seq] test begin..." << endl;
+  {
+    int e = 5;
+    int pos = get_local_list_seq(L, e, bigger);
+    if (pos <= L.length) {
+      printf("the first elem, which is bigger than e[%d], is in the pos^%d^\n",
+             e, pos);
+    } else {
+      cout << "NO elem in the List SATISFYING CONDITION!" << endl;
+    }
+    cout << endl;
+  }
+  PressEnter;
+  
   cout << "function [del_list_seq] test begin..." << endl;
   {
     ElemType_Sql e = 0;
@@ -77,6 +93,56 @@ void test_SequenceList_demo() {
     cout << endl;
   }
   PressEnter;
+
+    cout << "function [union_list_seq] test begin..." << endl;
+  {
+    Sqlist La, Lb;
+    int a[5] = {5, 2, 1, 3, 9};
+    int b[7] = {7, 2, 6, 9, 11, 3, 10};
+
+    init_list_seq(&La);
+    for (int i=0; i<5; i++) {
+      insert_list_seq(&La, i+1, a[i]);
+    }
+    cout << "La: ";
+    traversal_list_seq(La);
+
+    init_list_seq(&Lb);
+    for (int i=0; i<7; i++) {
+      insert_list_seq(&Lb, i+1, b[i]);
+    }
+    cout << "Lb: ";
+    traversal_list_seq(Lb);
+
+    union_list_seq(&La, Lb);
+    cout << "after union, La: ";
+    traversal_list_seq(La);
+    cout << endl;
+  }
+
+  cout << "function [merge_list_seq] test begin..." << endl;
+  {
+    Sqlist La, Lb, Lc;
+
+    init_list_seq(&La);
+    for (int i=0; i<5; i++) {
+      insert_list_seq(&La, i+1, 2*i);
+    }
+    cout << "La: ";
+    traversal_list_seq(La);
+
+    init_list_seq(&Lb);
+    for (int i=0; i<7; i++) {
+      insert_list_seq(&Lb, i+1, 2*i+1);
+    }
+    cout << "Lb: ";
+    traversal_list_seq(Lb);
+
+    merge_list_seq(La, Lb, &Lc);
+    cout << "after merge, Lc: ";
+    traversal_list_seq(Lc);
+    cout << endl;
+  }
 
 
 }
