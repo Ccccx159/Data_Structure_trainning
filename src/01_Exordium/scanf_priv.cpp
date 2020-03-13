@@ -3,6 +3,10 @@
 
 #include "status.h"
 
+Status bigger(int a, int b) { return a < b ? TRUE : FALSE; }
+Status equal(int a, int b) { return a == b ? TRUE : FALSE; }
+Status smaller(int a, int b) { return a > b ? TRUE : FALSE; }
+
 int scanf_priv(FILE *fp, char *format, ...) {
   int *i = NULL;
   char *ch = NULL, *s = NULL;
