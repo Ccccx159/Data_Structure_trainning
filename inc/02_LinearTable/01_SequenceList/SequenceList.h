@@ -43,7 +43,7 @@ int get_length_list_seq(Sqlist L);
 Status get_elem_list_seq(Sqlist L, int i, ElemType_Sql *e);
 
 //查：获取元素e在顺序表中的位置
-Status get_local_list_seq(Sqlist L, ElemType_Sql e, compare func);
+int get_local_list_seq(Sqlist L, ElemType_Sql e, compare func);
 
 //查：获取元素e的前驱
 Status get_prior_list_seq(Sqlist L, ElemType_Sql e, ElemType_Sql *pre);
@@ -62,7 +62,7 @@ Status traversal_list_seq(Sqlist L);
   
 /******************************************************************************/
 
-//求两个顺序表个并集
+//求两个顺序表的并集
 void union_list_seq(Sqlist *La, Sqlist Lb);
 
 //顺序表的合并

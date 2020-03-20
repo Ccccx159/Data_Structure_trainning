@@ -55,11 +55,11 @@ Status traverse_linked_list(plinked_list_node L);
 
 // 头插法创建单链表
 Status create_linked_list_h(plinked_list_node *L,
-                            std::vector(ElemType_int> list);
+                            std::vector<ElemType_int> list);
 
 // 尾插法创建单链表
 Status create_linked_list_t(plinked_list_node *L,
-                            std::vector(ElemType_int> list);
+                            std::vector<ElemType_int> list);
 
 #ifdef __cplusplus
 }

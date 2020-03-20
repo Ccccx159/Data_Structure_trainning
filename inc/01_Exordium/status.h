@@ -59,6 +59,7 @@ typedef int Status;
     printf("Press Enter..."); \
     getchar();                \
     fflush(stdin);            \
+    std::cout << std::endl;   \
   }
 
 #ifdef __cplusplus

@@ -2,8 +2,10 @@
 
 int main(int argc, char *argv[]) {
     
-#ifdef SEQUENCELIST_TEST
+#if defined(SEQUENCELIST_TEST)
     test_SequenceList_demo();
+#elif defined(SINGLYLINKEDLIST_TEST)
+    test_SinglyLinkedList_demo();
 #endif
 
     return 0;

@@ -11,6 +11,9 @@ extern "C" {
 //顺序表的测试接口函数
 void test_SequenceList_demo();
 
+//单链表测试接口函数
+void test_SinglyLinkedList_demo();
+
 
 #ifdef __cplusplus
 }

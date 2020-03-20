@@ -50,15 +50,14 @@ Status get_elem_list_seq(Sqlist L, int i, ElemType_Sql *e) {
 }
 
 //查：获取元素e在顺序表中第一次出现的位置
-Status get_local_list_seq(Sqlist L, ElemType_Sql e, int *i) {
+int get_local_list_seq(Sqlist L, ElemType_Sql e, compare func) {
   for (int idx = 0; idx < L.length; idx++) {
-    if (e == L.elem[idx]) {
-      *i = idx;
-      return OK;
+    if (!func(e, L.elem[idx])) {
+      return idx + 1;
     }
   }
   std::cout << "No elem [" << e << "] in this list!" << std::endl;
-  return ERROR;
+  return -1;
 }
 
 //查：获取元素e的前驱
@@ -103,8 +102,8 @@ Status insert_list_seq(pSqlist L, int i, ElemType_Sql e) {
       L->list_size = (LIST_INIT_SIZE + LIST_INIT_SIZE) * sizeof(ElemType_Sql);
     }
   }
-  for (int idx = L->length; idx >= 0 && idx >= i; idx--) {
-    L->elem[idx + 1] = L->elem[idx];
+  for (int idx = L->length; idx >= 0 && idx > i; idx--) {
+    L->elem[idx] = L->elem[idx - 1];
   }
   L->elem[i - 1] = e;
   L->length++;
@@ -113,7 +112,7 @@ Status insert_list_seq(pSqlist L, int i, ElemType_Sql e) {
 
 //删：删除顺序表中的第i个数据，用e接收原第i个元素
 Status del_list_seq(pSqlist L, int i, ElemType_Sql *e) {
-  if (i < 0 && i > L->length) {
+  if (i <= 0 || i > L->length) {
     printf("i[%d] invalid\n", i);
     return ERROR;
   }
@@ -137,5 +136,48 @@ Status traversal_list_seq(Sqlist L) {
       std::cout << std::endl;
     }
   }
+  return OK;
+}
+
+extern Status equal(int a, int b);
+
+//求两个顺序表的并集
+void union_list_seq(Sqlist *La, Sqlist Lb) {
+  for (int idx = 0; idx < Lb.length; idx++) {
+    int pos = get_local_list_seq(*La, Lb.elem[idx], equal);
+    if (pos > 0) {
+      continue;
+    } else {
+      insert_list_seq(La, La->length + 1, Lb.elem[idx]);
+    }
+  }
+}
+
+//顺序表的合并
+Status merge_list_seq(Sqlist La, Sqlist Lb, pSqlist Lc) {
+  Lc->elem =
+      (ElemType_Sql *)calloc(La.length + Lb.length, sizeof(ElemType_Sql));
+  Lc->length = La.length + Lb.length;
+  Lc->list_size = (La.length + Lb.length) * sizeof(ElemType_Sql);
+
+  ElemType_Sql *pc = Lc->elem;
+  ElemType_Sql *pa = La.elem;
+  ElemType_Sql *pb = Lb.elem;
+
+  while (pa <= La.elem + La.length - 1 && pb <= Lb.elem + Lb.length - 1) {
+    if (*pa <= *pb) {
+      *pc++ = *pa++;
+    } else {
+      *pc++ = *pb++;
+    }
+  }
+
+  while (pa <= La.elem + La.length - 1) {
+    *pc++ = *pa++;
+  }
+  while (pb <= Lb.elem + Lb.length - 1) {
+    *pc++ = *pb++;
+  }
+
   return OK;
 }
