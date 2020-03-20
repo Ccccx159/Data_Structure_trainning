@@ -12,6 +12,7 @@
 #define _STATUS_H_
 
 #include <iostream>
+#include <vector>
 #include <ctype.h>
 #include <stdarg.h>
 #include <stdio.h>
