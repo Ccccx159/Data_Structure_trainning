@@ -13,10 +13,16 @@ CXXFLAGS += -I$(DIR_TRUNK)/inc/01_Exordium
 SRCS += $(DIR_SRCS)/01_Exordium/scanf_priv.cpp
 
 
-ifeq ($(func), sequence_list)
+ifeq ($(findstring sequence_list, $(func)), sequence_list)
 CXXFLAGS += -DSEQUENCELIST_TEST
 SRCS += $(DIR_SRCS)/02_LinearTable/01_SequenceList/SequenceList.cpp
 SRCS += $(DIR_SRCS)/02_LinearTable/01_SequenceList/test_SequenceList_demo.cpp
+endif
+
+ifeq ($(findstring singlylinked_list, $(func)), singlylinked_list)
+CXXFLAGS += -DSINGLYLINKEDLIST_TEST
+SRCS += $(DIR_SRCS)/02_LinearTable/02_SinglyLinkedList/SinglyLinkedList.cpp
+SRCS += $(DIR_SRCS)/02_LinearTable/02_SinglyLinkedList/test_SinglyLinkedList_demo.cpp
 endif
 
 SRCS += $(DIR_SRCS)/main.cpp
