@@ -117,6 +117,8 @@ void test_SequenceList_demo() {
     union_list_seq(&La, Lb);
     cout << "after union, La: ";
     traversal_list_seq(La);
+    destroy_list_seq(&La);
+    destroy_list_seq(&Lb);
     cout << endl;
   }
 
@@ -141,8 +143,12 @@ void test_SequenceList_demo() {
     merge_list_seq(La, Lb, &Lc);
     cout << "after merge, Lc: ";
     traversal_list_seq(Lc);
+    destroy_list_seq(&La);
+    destroy_list_seq(&Lb);
+    destroy_list_seq(&Lc);
     cout << endl;
   }
 
+  destroy_list_seq(&L);
 
 }

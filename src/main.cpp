@@ -4,7 +4,9 @@ int main(int argc, char *argv[]) {
     
 #if defined(SEQUENCELIST_TEST)
     test_SequenceList_demo();
-#elif defined(SINGLYLINKEDLIST_TEST)
+#endif
+
+#if defined(SINGLYLINKEDLIST_TEST)
     test_SinglyLinkedList_demo();
 #endif
 

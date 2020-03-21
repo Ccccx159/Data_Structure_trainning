@@ -40,7 +40,7 @@ TMPFILES = $(foreach dir,$(SUBDIRS),$(wildcard $(dir)*.o))
 .PHONY:all clean
 all: $(TARGET)
 $(TARGET):$(OBJS)
-	$(CPP) -g -fno-omit-frame-pointer -o $@ $^ $(LDFLAGS)
+	$(CPP) -g -fno-omit-frame-pointer -fsanitize=address -o $@ $^ $(LDFLAGS)
 
 %.o:%.c
 	$(GCC) -g $(CXXFLAGS) -o $@ -c $<

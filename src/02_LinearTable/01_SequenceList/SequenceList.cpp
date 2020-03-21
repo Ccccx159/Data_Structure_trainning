@@ -21,15 +21,12 @@ Status clear_list_seq(pSqlist L) {
 
 //销毁顺序表
 Status destroy_list_seq(pSqlist L) {
-  memset(L->elem, 0, LIST_INIT_SIZE * sizeof(ElemType_Sql));
+  memset(L->elem, 0, L->length * sizeof(ElemType_Sql));
   free(L->elem);
   L->elem = NULL;
   L->length = 0;
   L->list_size = 0;
-  free(L);
-  if (NULL != L) {
-    return UNSUCCESS;
-  }
+  
   return SUCCESS;
 }
 

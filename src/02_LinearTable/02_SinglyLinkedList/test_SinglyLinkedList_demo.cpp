@@ -87,6 +87,9 @@ void test_SinglyLinkedList_demo() {
   }
   PressEnter;
 
+  ret = destroy_linked_list(&L);
+  assert(OK == ret);
+
   cout << "function [create_linked_list_h] test begin..." << endl;
   {
     plinked_list_node H = NULL;
@@ -99,6 +102,8 @@ void test_SinglyLinkedList_demo() {
     printf("create linked_list from HEAD SUCCESS!\n");
     cout << "now head_linked_list is: ";
     ret = traverse_linked_list(H);
+    assert(OK == ret);
+    ret = destroy_linked_list(&H);
     assert(OK == ret);
   }
   PressEnter;
@@ -115,6 +120,8 @@ void test_SinglyLinkedList_demo() {
     printf("create linked_list from TAIL SUCCESS!\n");
     cout << "now tail_linked_list is: ";
     ret = traverse_linked_list(T);
+    assert(OK == ret);
+    ret = destroy_linked_list(&T);
     assert(OK == ret);
   }
   PressEnter;
