@@ -14,6 +14,9 @@ void test_SequenceList_demo();
 //单链表测试接口函数
 void test_SinglyLinkedList_demo();
 
+//双向循环链表测试接口函数
+void test_DualCycleLinkedList_demo();
+
 
 #ifdef __cplusplus
 }

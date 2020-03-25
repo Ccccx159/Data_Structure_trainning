@@ -25,6 +25,12 @@ SRCS += $(DIR_SRCS)/02_LinearTable/02_SinglyLinkedList/SinglyLinkedList.cpp
 SRCS += $(DIR_SRCS)/02_LinearTable/02_SinglyLinkedList/test_SinglyLinkedList_demo.cpp
 endif
 
+ifeq ($(findstring dualcyclelinked_list, $(func)), dualcyclelinked_list)
+CXXFLAGS += -DDUALCYCLELINKEDLIST_TEST
+SRCS += $(DIR_SRCS)/02_LinearTable/03_DualCycleLinkedList/DualCycleLinkedList.cpp
+SRCS += $(DIR_SRCS)/02_LinearTable/03_DualCycleLinkedList/test_DualCycleLinkedList_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++

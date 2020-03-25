@@ -10,5 +10,9 @@ int main(int argc, char *argv[]) {
     test_SinglyLinkedList_demo();
 #endif
 
+#if defined(DUALCYCLELINKEDLIST_TEST)
+    test_DualCycleLinkedList_demo();
+#endif
+
     return 0;
 }
