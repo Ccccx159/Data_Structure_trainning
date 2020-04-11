@@ -14,5 +14,9 @@ int main(int argc, char *argv[]) {
     test_DualCycleLinkedList_demo();
 #endif
 
+#if defined(SEQUENCESTACK_TEST)
+    test_SequenceStack_demo();
+#endif
+
     return 0;
 }

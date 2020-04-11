@@ -31,6 +31,12 @@ SRCS += $(DIR_SRCS)/02_LinearTable/03_DualCycleLinkedList/DualCycleLinkedList.cp
 SRCS += $(DIR_SRCS)/02_LinearTable/03_DualCycleLinkedList/test_DualCycleLinkedList_demo.cpp
 endif
 
+ifeq ($(findstring sequence_stack, $(func)), sequence_stack)
+CXXFLAGS += -DSEQUENCESTACK_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/test_SequenceStack_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++
