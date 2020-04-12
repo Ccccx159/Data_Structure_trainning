@@ -11,21 +11,25 @@ void test_LinkedListStack_demo() {
     printf("init LinkedList_Stack[stk] ...\n");
     ret = init_stack_linkedList(&stk);
     assert(ret == OK);
-    cout << "init SUCCESS!..." << endl;
+    // cout << "init SUCCESS!..." << endl;
+    LOG_INFO("init SUCCESS!...\n");
   }
   PressEnter;
 
   cout << "function [empty_stack_linkedList] test begin..." << endl;
   {
-    TRUE == empty_stack_linkedList(stk) ? cout << "stack is EMPTY!" << endl
-                                        : cout << "stack is NOT empty" << endl;
+    if (TRUE == empty_stack_linkedList(stk)) {
+      LOG_WARN("stack is EMPTY!\n");
+    } else {
+      LOG_WARN("stack is NOT empty\n");
+    }
   }
   PressEnter;
 
   cout << "function [push_stack_linkedList] test begin..." << endl;
   {
     for (int i = 1; i < 6; i++) {
-      printf("for example: push [%d] in the position ^%d^", 2 * i, i);
+      LOG_WARN("for example: push [%d] in the position ^%d^", 2 * i, i);
       ret = push_stack_linkedList(&stk, 2 * i);
       assert(OK == ret);
       cout << endl;
@@ -35,7 +39,7 @@ void test_LinkedListStack_demo() {
 
   cout << "function [traverse_stack_linkedList] test begin..." << endl;
   {
-    cout << "stack [stk]'s element is: " << endl;
+    LOG_INFO("stack [stk]'s element is: \n");
     ret = traverse_stack_linkedList(stk);
     assert(OK == ret);
   }
@@ -44,7 +48,7 @@ void test_LinkedListStack_demo() {
   cout << "function [get_length_stack_linkedList] test begin..." << endl;
   {
     int length = get_length_stack_linkedList(stk);
-    cout << "stack [stk]'s length is: [" << length << "]" << endl;
+    LOG_INFO("stack [stk]'s length is: [%d]\n", length);
   }
   PressEnter;
 
@@ -53,7 +57,7 @@ void test_LinkedListStack_demo() {
     elemType_linkedStack e = 0;
     ret = get_top_stack_linkedList(stk, &e);
     assert(OK == ret);
-    printf("the elem in top of stack is: [%d]\n", e);
+    LOG_INFO("the elem in top of stack is: [%d]\n", e);
   }
   PressEnter;
 
@@ -63,7 +67,7 @@ void test_LinkedListStack_demo() {
     for (int i = 2; i > 0; i--) {
       ret = pop_stack_linkedList(&stk, &e);
       assert(OK == ret);
-      cout << "pop elem" << e << endl;
+      LOG_WARN("pop elem %d\n", e);
     }
     ret = traverse_stack_linkedList(stk);
     assert(OK == ret);
@@ -74,7 +78,7 @@ void test_LinkedListStack_demo() {
   {
     ret = destroy_stack_linkedList(&stk);
     assert(OK == ret);
-    printf("destroy sequenceStack SUCCESS!..\n");
+    LOG_INFO("destroy sequenceStack SUCCESS!..\n");
   }
   PressEnter;
 }

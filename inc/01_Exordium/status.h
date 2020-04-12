@@ -62,6 +62,19 @@ typedef int Status;
     std::cout << std::endl;   \
   }
 
+#define LOG_WARN(format, ...) do{                                           \
+  printf("\33[33m" format "\33[0m", ##__VA_ARGS__);                         \
+} while(0)                                                                  \
+
+#define LOG_INFO(format, ...) do{                                           \
+  printf("\33[32m" format "\33[0m", ##__VA_ARGS__);                         \
+} while(0)                                                                  \
+
+#define LOG_ERROR(format, ...) do{                                          \
+  printf("\33[31m" format "\33[0m", ##__VA_ARGS__);                         \
+} while(0)                                                                  \
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
