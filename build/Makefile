@@ -37,6 +37,12 @@ SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp
 SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/test_SequenceStack_demo.cpp
 endif
 
+ifeq ($(findstring linkedlist_stack, $(func)), linkedlist_stack)
+CXXFLAGS += -DLINKEDLISTSTACK_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/02_LinkedListStack/LinkedListStack.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/02_LinkedListStack/test_LinkedListStack_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++

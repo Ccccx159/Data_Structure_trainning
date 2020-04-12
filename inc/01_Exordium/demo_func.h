@@ -20,6 +20,9 @@ void test_DualCycleLinkedList_demo();
 // 顺序栈测试接口函数
 void test_SequenceStack_demo();
 
+// 链栈测试接口函数
+void test_LinkedListStack_demo();
+
 
 #ifdef __cplusplus
 }

@@ -18,5 +18,9 @@ int main(int argc, char *argv[]) {
     test_SequenceStack_demo();
 #endif
 
+#if defined(LINKEDLISTSTACK_TEST)
+    test_LinkedListStack_demo();
+#endif
+
     return 0;
 }
