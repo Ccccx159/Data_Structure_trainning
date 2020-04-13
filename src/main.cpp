@@ -22,5 +22,9 @@ int main(int argc, char *argv[]) {
     test_LinkedListStack_demo();
 #endif
 
+#if defined(LINEEDITOR_TEST)
+    test_LineEditor_demo();
+#endif
+
     return 0;
 }

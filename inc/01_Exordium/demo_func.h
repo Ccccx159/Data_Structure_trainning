@@ -23,6 +23,9 @@ void test_SequenceStack_demo();
 // 链栈测试接口函数
 void test_LinkedListStack_demo();
 
+// 行编辑程序测试接口函数
+void test_LineEditor_demo();
+
 
 #ifdef __cplusplus
 }

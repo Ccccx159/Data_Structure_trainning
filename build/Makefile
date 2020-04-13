@@ -43,6 +43,13 @@ SRCS += $(DIR_SRCS)/03_StackAndQueue/02_LinkedListStack/LinkedListStack.cpp
 SRCS += $(DIR_SRCS)/03_StackAndQueue/02_LinkedListStack/test_LinkedListStack_demo.cpp
 endif
 
+ifeq ($(findstring lineeditor_stack, $(func)), lineeditor_stack)
+CXXFLAGS += -DLINEEDITOR_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/03_LineEditor/LineEditor.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/03_LineEditor/test_LineEditor_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++
