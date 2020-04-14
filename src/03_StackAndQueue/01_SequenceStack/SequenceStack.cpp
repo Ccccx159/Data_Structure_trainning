@@ -103,10 +103,10 @@ Status traverse_stack_sq(sq_stack_t stk) {
     std::cout << "stack is Empty!..." << std::endl;
     return ERROR;
   }
-  elemType_sq_stack *tmp = stk.base;
-  while (tmp != stk.top) {
+  
+  for (elemType_sq_stack *tmp = stk.top - 1; tmp >= stk.base;) {
     std::cout << *tmp << " ";
-    tmp++;
+    tmp--;
   }
 
   return OK;

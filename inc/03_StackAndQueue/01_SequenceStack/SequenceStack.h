@@ -15,6 +15,7 @@ typedef struct sequence_stack_tag{
   elemType_sq_stack *top;   //栈顶指针
   int stackSize;            //栈空间大小
   int stack_len;
+  char stack_name[32];
 }sq_stack_t, *p_sq_stack_t;
 
 #ifdef __cplusplus
