@@ -50,6 +50,13 @@ SRCS += $(DIR_SRCS)/03_StackAndQueue/03_LineEditor/LineEditor.cpp
 SRCS += $(DIR_SRCS)/03_StackAndQueue/03_LineEditor/test_LineEditor_demo.cpp
 endif
 
+ifeq ($(findstring hanoi_stack_sq, $(func)), hanoi_stack_sq)
+CXXFLAGS += -DHANOI_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/04_Hanoi/Hanoi.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/04_Hanoi/test_Hanoi_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++

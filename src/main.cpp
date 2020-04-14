@@ -26,5 +26,9 @@ int main(int argc, char *argv[]) {
     test_LineEditor_demo();
 #endif
 
+#if defined(HANOI_TEST)
+    test_Hanoi_demo();
+#endif
+
     return 0;
 }

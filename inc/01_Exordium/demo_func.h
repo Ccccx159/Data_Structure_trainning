@@ -26,6 +26,9 @@ void test_LinkedListStack_demo();
 // 行编辑程序测试接口函数
 void test_LineEditor_demo();
 
+// 汉诺塔测试接口函数
+void test_Hanoi_demo();
+
 
 #ifdef __cplusplus
 }
