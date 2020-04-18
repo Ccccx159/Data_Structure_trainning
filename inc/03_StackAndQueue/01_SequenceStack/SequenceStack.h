@@ -3,12 +3,20 @@
 
 #include "status.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define STACK_INIT_SIZE 100 //顺序栈初始化存储空间大小
 #define STACK_INCREMENT 10  //顺序栈存储空间的分配增量
 
 // 顺序栈定义
 // 在“迷宫”、“表达式”、“11二叉树二叉链表”、“孩子兄弟树”等算法中重定义该类型
-typedef int elemType_sq_stack;
+#if defined EXPRESSION_TEST
+  typedef char elemType_sq_stack;
+#else
+  typedef int elemType_sq_stack;
+#endif
 
 typedef struct sequence_stack_tag{
   elemType_sq_stack *base;  //栈底指针
@@ -18,9 +26,13 @@ typedef struct sequence_stack_tag{
   char stack_name[32];
 }sq_stack_t, *p_sq_stack_t;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define check_ptr(ptr)                                      \
+  {                                                         \
+    if (!ptr) {                                             \
+      std::cout << "ptr is NULL, pls chk!..." << std::endl; \
+      return ERROR;                                         \
+    }                                                       \
+  }
 
 // 初始化顺序栈
 Status init_stack_sq(p_sq_stack_t stk);

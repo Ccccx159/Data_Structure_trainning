@@ -29,6 +29,9 @@ void test_LineEditor_demo();
 // 汉诺塔测试接口函数
 void test_Hanoi_demo();
 
+// 表达式求值测试接口
+void test_Expression_demo();
+
 
 #ifdef __cplusplus
 }

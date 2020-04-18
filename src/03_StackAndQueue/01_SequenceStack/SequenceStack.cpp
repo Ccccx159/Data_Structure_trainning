@@ -1,13 +1,5 @@
 #include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
 
-#define check_ptr(ptr)                                      \
-  {                                                         \
-    if (!ptr) {                                             \
-      std::cout << "ptr is NULL, pls chk!..." << std::endl; \
-      return ERROR;                                         \
-    }                                                       \
-  }
-
 // 初始化顺序栈
 Status init_stack_sq(p_sq_stack_t stk) {
   stk->base =

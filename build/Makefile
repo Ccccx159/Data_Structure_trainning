@@ -57,6 +57,13 @@ SRCS += $(DIR_SRCS)/03_StackAndQueue/04_Hanoi/Hanoi.cpp
 SRCS += $(DIR_SRCS)/03_StackAndQueue/04_Hanoi/test_Hanoi_demo.cpp
 endif
 
+ifeq ($(findstring expression_sq, $(func)), expression_sq)
+CXXFLAGS += -DEXPRESSION_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/05_Expression/Expression.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/05_Expression/test_Expression_demo.cpp
+endif
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++

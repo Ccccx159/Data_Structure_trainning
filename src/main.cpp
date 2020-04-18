@@ -30,5 +30,9 @@ int main(int argc, char *argv[]) {
     test_Hanoi_demo();
 #endif
 
+#if defined(EXPRESSION_TEST)
+    test_Expression_demo();
+#endif
+
     return 0;
 }
