@@ -10,8 +10,10 @@ Attention:                                                         /
 #ifndef _EXPRESSION_H_
 #define _EXPRESSION_H_
 
-#include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
 #include "status.h"
+
+typedef char elemType_sq_stack;
+#include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
 
 #ifdef __cplusplus
 extern "C" {

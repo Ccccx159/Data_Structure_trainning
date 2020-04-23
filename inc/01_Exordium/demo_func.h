@@ -32,6 +32,9 @@ void test_Hanoi_demo();
 // 表达式求值测试接口
 void test_Expression_demo();
 
+// 利用栈实现迷宫寻路测试接口
+void test_Maze_demo();
+
 
 #ifdef __cplusplus
 }

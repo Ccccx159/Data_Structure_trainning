@@ -7,24 +7,35 @@
 extern "C" {
 #endif
 
-#define STACK_INIT_SIZE 100 //顺序栈初始化存储空间大小
-#define STACK_INCREMENT 10  //顺序栈存储空间的分配增量
+#define STACK_INIT_SIZE 100  //顺序栈初始化存储空间大小
+#define STACK_INCREMENT 10   //顺序栈存储空间的分配增量
+
+typedef struct maze_node_position_tag {
+  int x;
+  int y;
+} maze_node_pos_t, *p_maze_node_pos_t;
+
+typedef struct maze_node_tag  //通道块信息
+{
+  int direc;
+  maze_node_pos_t pos;
+} maze_node_t, *p_maze_node_t;
+
+typedef maze_node_t elemType_sq_stack;
 
 // 顺序栈定义
 // 在“迷宫”、“表达式”、“11二叉树二叉链表”、“孩子兄弟树”等算法中重定义该类型
-#if defined EXPRESSION_TEST
-  typedef char elemType_sq_stack;
-#else
-  typedef int elemType_sq_stack;
-#endif
+// #if !defined _EXPRESSION_H_ && !defined _MAZE_H_
+// typedef int elemType_sq_stack;
+// #endif
 
-typedef struct sequence_stack_tag{
+typedef struct sequence_stack_tag {
   elemType_sq_stack *base;  //栈底指针
   elemType_sq_stack *top;   //栈顶指针
   int stackSize;            //栈空间大小
   int stack_len;
   char stack_name[32];
-}sq_stack_t, *p_sq_stack_t;
+} sq_stack_t, *p_sq_stack_t;
 
 #define check_ptr(ptr)                                      \
   {                                                         \
@@ -63,6 +74,6 @@ Status traverse_stack_sq(sq_stack_t stk);
 
 #ifdef __cplusplus
 }
-#endif // __cplusplus
+#endif  // __cplusplus
 
-#endif // !_SEQUENCESTACK_H_
+#endif  // !_SEQUENCESTACK_H_

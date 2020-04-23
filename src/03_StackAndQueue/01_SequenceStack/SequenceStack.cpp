@@ -2,8 +2,8 @@
 
 // 初始化顺序栈
 Status init_stack_sq(p_sq_stack_t stk) {
-  stk->base =
-      (elemType_sq_stack *)calloc(STACK_INIT_SIZE + 1, sizeof(elemType_sq_stack));
+  stk->base = (elemType_sq_stack *)calloc(STACK_INIT_SIZE + 1,
+                                          sizeof(elemType_sq_stack));
   if (!stk->base) {
     std::cout << "memory calloc failed!" << std::endl;
     return OVERFLOW;
@@ -68,7 +68,7 @@ Status push_stack_sq(p_sq_stack_t stk, elemType_sq_stack e) {
     check_ptr(stk->base);
     stk->stackSize = STACK_INIT_SIZE + STACK_INCREMENT;
   }
-  *(stk->top) = e;
+  memcpy(stk->top, &e, sizeof(elemType_sq_stack));
   stk->top++;
   stk->stack_len++;
 
@@ -82,7 +82,7 @@ Status pop_stack_sq(p_sq_stack_t stk, elemType_sq_stack *e) {
     return ERROR;
   }
   (*e) = *(--stk->top);
-  (*stk->top) = 0;
+  // memset(stk->top, 0, sizeof(elemType_sq_stack));
   stk->stack_len--;
 
   return OK;
@@ -95,11 +95,11 @@ Status traverse_stack_sq(sq_stack_t stk) {
     std::cout << "stack is Empty!..." << std::endl;
     return ERROR;
   }
-  
-  for (elemType_sq_stack *tmp = stk.top - 1; tmp >= stk.base;) {
-    std::cout << *tmp << " ";
-    tmp--;
-  }
+
+  // for (elemType_sq_stack *tmp = stk.top - 1; tmp >= stk.base;) {
+  //   std::cout << *tmp << " ";
+  //   tmp--;
+  // }
 
   return OK;
 }

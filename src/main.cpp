@@ -34,5 +34,9 @@ int main(int argc, char *argv[]) {
     test_Expression_demo();
 #endif
 
+#if defined(MAZE_TEST)
+    test_Maze_demo();
+#endif
+
     return 0;
 }
