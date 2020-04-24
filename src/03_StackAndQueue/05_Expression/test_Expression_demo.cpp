@@ -1,6 +1,10 @@
 #include "demo_func.h"
-#include "03_StackAndQueue/05_Expression/Expression.h"
+#include "Expression.cpp"
 using namespace std;
+
+void print_exp(elemType_sq_stack &e) {
+  cout << e << " ";
+}
 
 void test_Expression_demo() {
   string src;
@@ -14,7 +18,8 @@ void test_Expression_demo() {
 
   // 将中缀表达式转换成后缀表达式
   ret = infixConvertSuffix(src, &suffix);
-  traverse_stack_sq(suffix);
+  visit vfunc = print_exp;
+  traverse_stack_sq(suffix, print_exp);
   cout << endl;
   
   // 借用栈计算表达式的值

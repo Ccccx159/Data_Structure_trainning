@@ -2,6 +2,10 @@
 #include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
 using namespace std;
 
+void print_sq(elemType_sq_stack &e) {
+  cout << e << " ";
+}
+
 // 顺序栈测试接口函数
 void test_SequenceStack_demo() {
   sq_stack_t stk = {0};
@@ -37,7 +41,8 @@ void test_SequenceStack_demo() {
   cout << "function [traverse_stack_sq] test begin..." << endl;
   {
     cout << "stack [stk]'s element is: " << endl;
-    ret = traverse_stack_sq(stk);
+    visit vfunc = print_sq;
+    ret = traverse_stack_sq(stk, print_sq);
     assert(OK == ret);
   }
   PressEnter;
