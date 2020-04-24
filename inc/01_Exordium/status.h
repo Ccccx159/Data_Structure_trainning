@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <iostream>
 #include <vector>
@@ -115,8 +116,28 @@ typedef int Status;
 // 定义一个函数指针，用于注册比较函数
 typedef Status (*compare)(int a, int b);
 
-//自定义输入函数声明
+// 自定义输入函数声明
 int scanf_priv(FILE *fp, char *format, ...);
+
+/*****************************************************************************
+ * 将一个字符的Unicode(UCS-2和UCS-4)编码转换成UTF-8编码.
+ *
+ * 参数:
+ *    unic     字符的Unicode编码值
+ *    pOutput  指向输出的用于存储UTF8编码值的缓冲区的指针
+ *    outsize  pOutput缓冲的大小
+ *
+ * 返回值:
+ *    返回转换后的字符的UTF8编码所占的字节数, 如果出错则返回 0 .
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是Unicode有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ *     2. 请保证 pOutput 缓冲区有最少有 6 字节的空间大小!
+ ****************************************************************************/
+int enc_unicode_to_utf8_one(unsigned long unic, unsigned char *pOutput,
+                            int outSize);
 
 #ifdef __cplusplus
 }

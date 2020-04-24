@@ -13,7 +13,7 @@ Attention:                                                         /
 #include "status.h"
 
 typedef char elemType_sq_stack;
-#include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
+#include "../src/03_StackAndQueue/01_SequenceStack/SequenceStack.cpp"
 
 #ifdef __cplusplus
 extern "C" {

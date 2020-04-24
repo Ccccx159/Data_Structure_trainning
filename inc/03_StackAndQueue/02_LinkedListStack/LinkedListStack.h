@@ -5,15 +5,15 @@
 
 typedef int elemType_linkedStack;  // 定义链栈存储数据类型
 
-typedef struct linkedList_stack_node_tag{
+typedef struct linkedList_stack_node_tag {
   elemType_linkedStack data;
   linkedList_stack_node_tag *next;
-}linkedList_stack_node_t, *p_linkedList_stack_node_t;
+} linkedList_stack_node_t, *p_linkedList_stack_node_t;
 
-typedef struct linkedList_stack_tag{
+typedef struct linkedList_stack_tag {
   p_linkedList_stack_node_t head;
   int stack_len;
-}linkedList_stack_t, *p_linkedList_stack_t;
+} linkedList_stack_t, *p_linkedList_stack_t;
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,13 +35,16 @@ Status empty_stack_linkedList(linkedList_stack_t stk_l);
 int get_length_stack_linkedList(linkedList_stack_t stk_l);
 
 // 用e获取栈顶元素
-Status get_top_stack_linkedList(linkedList_stack_t stk_l, elemType_linkedStack *e);
+Status get_top_stack_linkedList(linkedList_stack_t stk_l,
+                                elemType_linkedStack *e);
 
 // 元素e进栈
-Status push_stack_linkedList(p_linkedList_stack_t stk_l, elemType_linkedStack e);
+Status push_stack_linkedList(p_linkedList_stack_t stk_l,
+                             elemType_linkedStack e);
 
 // 元素e出栈
-Status pop_stack_linkedList(p_linkedList_stack_t stk_l, elemType_linkedStack *e);
+Status pop_stack_linkedList(p_linkedList_stack_t stk_l,
+                            elemType_linkedStack *e);
 
 // 遍历
 Status traverse_stack_linkedList(linkedList_stack_t stk_l);
