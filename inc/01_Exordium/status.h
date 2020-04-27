@@ -113,8 +113,27 @@ typedef int Status;
            ##__VA_ARGS__);                                                 \
   } while (0)
 
+#define ASSERT(x)                                                    \
+  if ((x) == 0) {                                                    \
+    printf(red "assert!::[%s][line: %d]\n" defaultclr, __FUNCTION__, \
+           __LINE__);                                                \
+    while (1)                                                        \
+      ;                                                              \
+  }
+
+#define check_ptr(ptr)                                      \
+  {                                                         \
+    if (!ptr) {                                             \
+      std::cout << "ptr is NULL, pls chk!..." << std::endl; \
+      return ERROR;                                         \
+    }                                                       \
+  }
+
 // 定义一个函数指针，用于注册比较函数
 typedef Status (*compare)(int a, int b);
+
+// 定义一个函数指针，用于注册遍历函数
+typedef void (*visit)(void *elem);
 
 // 自定义输入函数声明
 int scanf_priv(FILE *fp, char *format, ...);

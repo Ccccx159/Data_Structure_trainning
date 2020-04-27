@@ -24,17 +24,6 @@ typedef struct sequence_stack_tag {
   char stack_name[32];
 } sq_stack_t, *p_sq_stack_t;
 
-#define check_ptr(ptr)                                      \
-  {                                                         \
-    if (!ptr) {                                             \
-      std::cout << "ptr is NULL, pls chk!..." << std::endl; \
-      return ERROR;                                         \
-    }                                                       \
-  }
-
-// 定义一个函数指针，用于注册数据访问函数
-typedef void (*visit)(elemType_sq_stack &e);
-
 // 初始化顺序栈
 Status init_stack_sq(p_sq_stack_t stk);
 

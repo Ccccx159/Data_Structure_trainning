@@ -35,6 +35,9 @@ void test_Expression_demo();
 // 利用栈实现迷宫寻路测试接口
 void test_Maze_demo();
 
+// 链式队列实现测试接口
+void test_LinkedQueue_demo();
+
 
 #ifdef __cplusplus
 }

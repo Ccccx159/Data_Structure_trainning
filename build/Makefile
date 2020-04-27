@@ -67,6 +67,12 @@ CXXFLAGS += -DMAZE_TEST
 SRCS += $(DIR_SRCS)/03_StackAndQueue/06_Maze/test_Maze_demo.cpp
 endif
 
+ifeq ($(findstring queue_linked, $(func)), queue_linked)
+CXXFLAGS += -DLINKEDQUE_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/07_LinkedQueue/LinkedQueue.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/07_LinkedQueue/test_LinkedQueue_demo.cpp
+endif 
+
 SRCS += $(DIR_SRCS)/main.cpp
 
 LDFLAGS += -lm -ldl -lrt -lstdc++

@@ -38,5 +38,9 @@ int main(int argc, char *argv[]) {
     test_Maze_demo();
 #endif
 
+#if defined(LINKEDQUE_TEST)
+    test_LinkedQueue_demo();
+#endif
+
     return 0;
 }
