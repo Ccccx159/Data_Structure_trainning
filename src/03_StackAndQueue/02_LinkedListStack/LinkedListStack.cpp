@@ -84,11 +84,16 @@ Status push_stack_linkedList(p_linkedList_stack_t stk_l,
 Status pop_stack_linkedList(p_linkedList_stack_t stk_l,
                             elemType_linkedStack *e) {
   check_ptr(stk_l->head);
-  (*e) = stk_l->head->next->data;
-  p_linkedList_stack_node_t tmp = NULL;
-  tmp = stk_l->head->next;
-  stk_l->head->next = tmp->next;
-  free(tmp);
+  if (stk_l->stack_len > 0) {
+    (*e) = stk_l->head->next->data;
+    p_linkedList_stack_node_t tmp = NULL;
+    tmp = stk_l->head->next;
+    stk_l->head->next = tmp->next;
+    free(tmp);
+  } else {
+    LOG_ERROR("stack_linked is empty!!!\n");
+    return ERROR;
+  }
 
   return OK;
 }
