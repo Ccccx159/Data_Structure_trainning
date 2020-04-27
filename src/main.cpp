@@ -42,5 +42,9 @@ int main(int argc, char *argv[]) {
     test_LinkedQueue_demo();
 #endif
 
+#if defined(CIRCULARQUE_TEST)
+    test_CircularQueue_demo();
+#endif
+
     return 0;
 }

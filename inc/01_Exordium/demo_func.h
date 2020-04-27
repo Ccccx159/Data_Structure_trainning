@@ -38,6 +38,8 @@ void test_Maze_demo();
 // 链式队列实现测试接口
 void test_LinkedQueue_demo();
 
+// 循环队列实现测试接口
+void test_CircularQueue_demo();
 
 #ifdef __cplusplus
 }

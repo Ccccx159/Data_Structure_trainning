@@ -71,7 +71,13 @@ ifeq ($(findstring queue_linked, $(func)), queue_linked)
 CXXFLAGS += -DLINKEDQUE_TEST
 SRCS += $(DIR_SRCS)/03_StackAndQueue/07_LinkedQueue/LinkedQueue.cpp
 SRCS += $(DIR_SRCS)/03_StackAndQueue/07_LinkedQueue/test_LinkedQueue_demo.cpp
-endif 
+endif
+
+ifeq ($(findstring queue_circular, $(func)), queue_circular)
+CXXFLAGS += -DCIRCULARQUE_TEST
+SRCS += $(DIR_SRCS)/03_StackAndQueue/08_CircularQueue/CircularQueue.cpp
+SRCS += $(DIR_SRCS)/03_StackAndQueue/08_CircularQueue/test_CircularQueue_demo.cpp
+endif
 
 SRCS += $(DIR_SRCS)/main.cpp
 
