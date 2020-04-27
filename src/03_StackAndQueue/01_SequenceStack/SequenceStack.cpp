@@ -98,7 +98,7 @@ Status traverse_stack_sq(sq_stack_t stk, visit vfunc) {
   }
 
   for (elemType_sq_stack *tmp = stk.top - 1; tmp >= stk.base;) {
-    vfunc(*tmp);
+    vfunc(tmp);
     tmp--;
   }
 

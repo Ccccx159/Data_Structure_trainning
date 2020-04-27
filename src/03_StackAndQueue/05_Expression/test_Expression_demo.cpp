@@ -1,10 +1,8 @@
-#include "demo_func.h"
 #include "Expression.cpp"
+#include "demo_func.h"
 using namespace std;
 
-void print_exp(elemType_sq_stack &e) {
-  cout << e << " ";
-}
+void print_exp(void* e) { cout << *((elemType_sq_stack*)e) << " "; }
 
 void test_Expression_demo() {
   string src;
@@ -21,7 +19,7 @@ void test_Expression_demo() {
   visit vfunc = print_exp;
   traverse_stack_sq(suffix, print_exp);
   cout << endl;
-  
+
   // 借用栈计算表达式的值
   int val = 0;
   ret = calculateValue(&suffix, &val);

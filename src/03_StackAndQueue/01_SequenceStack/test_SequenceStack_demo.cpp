@@ -1,10 +1,8 @@
-#include "demo_func.h"
 #include "03_StackAndQueue/01_SequenceStack/SequenceStack.h"
+#include "demo_func.h"
 using namespace std;
 
-void print_sq(elemType_sq_stack &e) {
-  cout << e << " ";
-}
+void print_sq(void *e) { cout << *((elemType_sq_stack *)e) << " "; }
 
 // 顺序栈测试接口函数
 void test_SequenceStack_demo() {
